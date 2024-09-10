@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      AC1 - Criptografia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input [(ngModel)]="nome" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="email" type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Mensagem</ion-label>
+    <ion-input [(ngModel)]="menssagem" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Chave Secreta</ion-label>
+    <ion-input [(ngModel)]="secretKey" type="text"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="encrypt()">Criptografar</ion-button>
+
+  <ion-item>
+    <ion-label>Mensagem Criptografada</ion-label>
+    <ion-textarea [(ngModel)]="encryptedAll" readonly></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="block" (click)="abrirTela()">Avançar</ion-button>
+
+</ion-content>
