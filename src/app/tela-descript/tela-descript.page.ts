@@ -1,23 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
-  selector: 'app-tela-descript',
-  templateUrl: './tela-descript.page.html',
-  styleUrls: ['./tela-descript.page.scss'],
+  selector: 'app-descript',
+  templateUrl: 'tela-descript.page.html',
+  styleUrls: ['tela-descript.page.scss'],
 })
-export class TelaDescriptPage implements OnInit {
+export class DescriptPage {
+  secretKey: string ="";
+  encryptedData: string ="";
+  nome: string ="";
+  email: string ="";
+  menssagem: string ="";
+  dadosDescriptografados: boolean = false;
 
-  nome:any
-  email:any
-  menssagem:any
+  constructor() {
 
-  constructor(private activatedRoute : ActivatedRoute) { }
-
-  ngOnInit(){
-    this.nome = this.activatedRoute.snapshot.paramMap.get('nome')
-    this.email = this.activatedRoute.snapshot.paramMap.get('email');
-    this.menssagem = this.activatedRoute.snapshot.paramMap.get('menssagem');
+    this.encryptedData = localStorage.getItem('encryptedData') || '';
   }
 
+  descriptografar() {
+    try {
+
+      const bytes = CryptoJS.AES.decrypt(this.encryptedData, this.secretKey);
+      const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
+      
+      this.nome = decryptedData.nome;
+      this.email = decryptedData.email;
+      this.menssagem = decryptedData.menssagem;
+      this.dadosDescriptografados = true;
+    } catch (error) {
+      console.log('Erro ao descriptografar os dados:', error);
+      this.dadosDescriptografados = false;
+    }
+  }
 }

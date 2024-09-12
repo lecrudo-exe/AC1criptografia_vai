@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TelaDescriptPage } from './tela-descript.page';
+import { DescriptPage } from './tela-descript.page';
 
 describe('TelaDescriptPage', () => {
-  let component: TelaDescriptPage;
-  let fixture: ComponentFixture<TelaDescriptPage>;
+  let component: DescriptPage;
+  let fixture: ComponentFixture<DescriptPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TelaDescriptPage);
+    fixture = TestBed.createComponent(DescriptPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

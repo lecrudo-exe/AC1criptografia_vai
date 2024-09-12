@@ -6,6 +6,12 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>AC1 - Criptografia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
   <ion-item>
     <ion-label position="floating">Nome</ion-label>
@@ -27,7 +33,7 @@
     <ion-input [(ngModel)]="secretKey" type="text"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="encrypt()">Criptografar</ion-button>
+  <ion-button expand="full" (click)="encryptData()">Criptografar e Salvar</ion-button>
 
   <ion-item>
     <ion-label>Mensagem Criptografada</ion-label>
@@ -37,3 +43,5 @@
   <ion-button expand="block" (click)="abrirTela()">Avançar</ion-button>
 
 </ion-content>
+
+

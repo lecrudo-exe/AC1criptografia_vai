@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TelaDescriptPage } from './tela-descript.page';
+import { DescriptPage } from './tela-descript.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TelaDescriptPage
+    component: DescriptPage
   }
 ];
 

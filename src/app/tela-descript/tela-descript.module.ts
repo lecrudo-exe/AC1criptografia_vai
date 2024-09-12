@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
 import { TelaDescriptPageRoutingModule } from './tela-descript-routing.module';
-
-import { TelaDescriptPage } from './tela-descript.page';
+import { DescriptPage } from './tela-descript.page';
 
 @NgModule({
   imports: [
@@ -15,6 +13,7 @@ import { TelaDescriptPage } from './tela-descript.page';
     IonicModule,
     TelaDescriptPageRoutingModule
   ],
-  declarations: [TelaDescriptPage]
+  declarations: [DescriptPage]
 })
 export class TelaDescriptPageModule {}
+

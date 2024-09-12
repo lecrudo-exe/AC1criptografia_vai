@@ -5,7 +5,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>{{nome}}</ion-label>
-  <ion-label>{{email}}</ion-label>
-  <ion-label>{{menssagem}}</ion-label>
+  <ion-item>
+    <ion-label position="floating">Chave Secreta</ion-label>
+    <ion-input [(ngModel)]="secretKey" type="text"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="descriptografar()">Descriptografar</ion-button>
+
+  <div *ngIf="dadosDescriptografados">
+    <ion-item>
+      <ion-label>Nome: {{nome}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email: {{email}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mensagem: {{menssagem}}</ion-label>
+    </ion-item>
+  </div>
 </ion-content>

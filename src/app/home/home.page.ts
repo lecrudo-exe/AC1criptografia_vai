@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import * as CryptoJS from 'crypto-js'
+import * as CryptoJS from 'crypto-js'; 
 
 @Component({
   selector: 'app-home',
@@ -8,24 +7,29 @@ import * as CryptoJS from 'crypto-js'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  nome: string = "";
+  email: string ="";
+  menssagem: string ="";
+  secretKey: string ="";
+  encryptedAll: string ="";
 
-  nome: string = ""
-  email: string = ""
-  menssagem: string = ""
-  secretKey: string = ""
-  encryptedAll: string = ""
+  constructor() {}
 
-  constructor(public router : Router) {}
+  encryptData() {
 
-  abrirTela(){
-    this.router.navigateByUrl
-    (`/tela-descript/${this.nome}/${this.email}/${this.menssagem}`);
+    const data = JSON.stringify({ nome: this.nome, email: this.email, menssagem: this.menssagem });
+
+
+    this.encryptedAll = CryptoJS.AES.encrypt(data, this.secretKey).toString();
+
+
+    localStorage.setItem('encryptedData', this.encryptedAll);
+
+    console.log('Dados criptografados:', this.encryptedAll);
   }
 
-  encrypt(){
-    if(this.nome && this.secretKey){
-      const encrypted = CryptoJS.AES.encrypt(this.nome, this.secretKey).toString();
-      this.encryptedAll = encrypted;
-    }
+  abrirTela() {
+
+    window.location.href = "/descript";
   }
 }
