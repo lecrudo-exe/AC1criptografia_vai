@@ -25,7 +25,7 @@ export class DescriptPage {
       const bytes = CryptoJS.AES.decrypt(this.encryptedData, this.secretKey);
       const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-      
+
       this.nome = decryptedData.nome;
       this.email = decryptedData.email;
       this.menssagem = decryptedData.menssagem;
